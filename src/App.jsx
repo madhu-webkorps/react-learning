@@ -1,14 +1,17 @@
 import React from 'react';
 import Heading from './Heading';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import {Main} from './Main';
 // import Card from './Card';
 // import data from './data';
 // import {GetTime, Count} from './count';
-import Hooks from './hook';
-import { LoginForm } from './login';
-import ApiData from './data';
-import ComA from './comA';
-import UseMemoExample from './useMemo';
+// import Hooks from './hook';
+// import { LoginForm } from './login';
+// import ApiData from './data';
+// import ComA from './comA';
+import Home from './Router/home';
+import About from './Router/about';
+import Contact from './Router/contact';
 
 const cardsStyle = {
   display: 'flex',
@@ -19,8 +22,7 @@ const cardsStyle = {
 
 function App() {
   return (
-    <div id = 'app'>
-      <Heading/>
+    <div id='app'>
       {/* <div className='cards' style={cardsStyle}>
         {
           data.map((val) => {
@@ -42,7 +44,14 @@ function App() {
       {/* <Hooks/> */}
       {/* <ApiData/> */}
       {/* <ComA/> */}
-      <UseMemoExample/>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home></Home>} />
+          <Route path='/about' element = { <About/>} />
+          <Route path='/contact' element = {<Contact/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
